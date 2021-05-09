@@ -14,16 +14,37 @@ const isNumber = (number)=>{
 const multiply = (a,b)=>{
     return new Promise((resolve, reject)=>{
 
-        if(isNumber(a) && isNumber(b)){
+        if(isNumber(a) && isNumber(b))
             resolve(a*b)
-        }
-        else{
+        else
+            reject("Doğru Parametreler ile Tekrar Deneyiniz")
+
+    })
+}
+
+const summation = (a,b)=>{
+    return new Promise((resolve, reject)=>{
+        if(isNumber(a) && isNumber(b))
+            resolve(a+b)
+        else
+            reject("Doğru Parametreler ile Tekrar Deneyiniz")
+    })
+}
+
+const minus = (a,b)=>{
+    return new Promise((resolve ,reject)=>{
+
+        if(isNumber(a) && isNumber(b)){
+            if(a>b)
+                resolve(a-b)
+            else
+                resolve(b-a)
+        }else {
             reject("Doğru Parametreler ile Tekrar Deneyiniz")
         }
 
     })
 }
-
 
 const fetch = require("node-fetch")
 
@@ -31,6 +52,22 @@ multiply(5,5)// Promise Pending
     .finally(()=>console.log("Promise Started")) // Promisi oto çalıştırır başarılı olup olmadığına bakmaz
     .then(result=>console.log(result)) // If Success Execute This (Full Filled)
     .catch(err=>console.log(err)) // If Catch Error Execute This (Rejected)
+
+summation(10,20)
+    .then(data=>console.log(data))
+    .catch(err=>console.log(err))
+
+minus(10,20)
+    .then(data=>console.log(data))
+    .catch(err=>console.log(err))
+
+Promise.all([summation(5,10),minus(5,10),multiply(5,10)])
+    .then(resultArr=>{
+        console.log(resultArr[0])
+        console.log(resultArr[1])
+        console.log(resultArr[2])
+        console.log(resultArr)
+    })
 
 
 fetch("https://api.github.com/users/hadley/orgs")
@@ -44,5 +81,5 @@ fetch("https://api.github.com/users/hadley/orgs")
     .then(data=>{
         return data.json()
     }).then(response=>{
-        console.log(response)
+        console.log(response[0])
     })
