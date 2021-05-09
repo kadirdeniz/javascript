@@ -5,16 +5,13 @@
 // Resolve for succes
 // Pending for waiting to call
 
-// Check Given Number Type
-const isNumber = (number)=>{
-    return typeof number == "number"
-}
+
 
 // Promise
 const multiply = (a,b)=>{
     return new Promise((resolve, reject)=>{
 
-        if(isNumber(a) && isNumber(b))
+        if(Number.isInteger(a) && Number.isInteger(b))
             resolve(a*b)
         else
             reject("Doğru Parametreler ile Tekrar Deneyiniz")
@@ -24,7 +21,7 @@ const multiply = (a,b)=>{
 
 const summation = (a,b)=>{
     return new Promise((resolve, reject)=>{
-        if(isNumber(a) && isNumber(b))
+        if(Number.isInteger(a) && Number.isInteger(b))
             resolve(a+b)
         else
             reject("Doğru Parametreler ile Tekrar Deneyiniz")
@@ -34,7 +31,7 @@ const summation = (a,b)=>{
 const minus = (a,b)=>{
     return new Promise((resolve ,reject)=>{
 
-        if(isNumber(a) && isNumber(b)){
+        if(Number.isInteger(a) && Number.isInteger(b)){
             if(a>b)
                 resolve(a-b)
             else
@@ -83,3 +80,5 @@ fetch("https://api.github.com/users/hadley/orgs")
     }).then(response=>{
         console.log(response[0])
     })
+
+console.log(Number.isInteger(10))
