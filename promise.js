@@ -5,8 +5,10 @@
 // Resolve for succes
 // Pending for waiting to call
 
-
-
+const kadir = require("./exportedModule")
+console.log(kadir.isim())
+console.log(kadir.soyisim())
+console.log(kadir.yas())
 // Promise
 const multiply = (a,b)=>{
     return new Promise((resolve, reject)=>{

@@ -75,3 +75,4 @@ const min = (a,b)=>{
     }
 }
 console.log(min(3,2))
+

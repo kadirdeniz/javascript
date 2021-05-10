@@ -1,5 +1,6 @@
 const arr = [2,3,5,7,11]
 
+console.log(5 in arr)
 // JS objects are name indexes
 // JS arrays are number indexes
 

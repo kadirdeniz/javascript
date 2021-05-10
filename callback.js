@@ -1,5 +1,4 @@
 // Call Back Function
-
 const multiplyCallback = (a,b,successCallback,rejectCallback)=>{
     if(Number.isInteger(a) && Number.isInteger(b)){
         successCallback(a*b)
