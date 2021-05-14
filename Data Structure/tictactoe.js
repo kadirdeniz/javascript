@@ -1,6 +1,6 @@
 // Tik Tac Toe
 
-const board = [["X","X","O"],["O","X","O"],["O","O","X"]]
+const board = [["X","O","O"],["O","X","O"],["O","O","X"]]
 
 const checkValues = (arr)=>{
     // Check Rows isEqual
@@ -16,6 +16,14 @@ const checkValues = (arr)=>{
             return 1
         }
     }
+
+    // Oyun Çapraz Bitebilir
+    if(checkXorO([arr[0][0],arr[1][1],arr[2][2]])){
+        return 1
+    }else if(checkXorO([arr[0][2],arr[1][1],arr[2][0]])){
+        return 1
+    }
+
     return 0
 }
 
@@ -35,4 +43,5 @@ const isGameFinished = (arr)=>{
         console.log("Game Continious")
     }
 }
+
 isGameFinished(board)

@@ -88,3 +88,19 @@ const reverse = (arr)=>{
 
 console.log(range(1,5))
 console.log(reverse(range(1,5)))
+
+
+// Types Of Iterations
+// For in
+
+for(let i in arr){
+    console.log(arr)
+}
+
+// For of 
+
+for(let x of arr){
+    console.log(x)
+}
+
+// Foreach
