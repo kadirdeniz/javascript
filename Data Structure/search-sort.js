@@ -62,13 +62,13 @@ console.log(bubleSort(unsortedArr))
 // Selection Sort
 const selectionSort = (arr)=>{
     for(let i=0;i<=arr.length-1;i++){
-        let min = i
+        let min = arr[i]
         for(var j=i;j<=arr.length;j++){
             if(arr[j]<min){
                 min=arr[j]
             }
             if(i!=min){
-                swap(arr,i,min)
+                swap(arr,arr[i],min)
             }
         }
     }
